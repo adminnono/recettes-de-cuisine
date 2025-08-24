@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ChefHat } from "lucide-react";
 import { SearchBar } from "./components/SearchBar";
@@ -36,6 +36,10 @@ function HomePage() {
     return favorites.some((fav) => fav.idMeal === recipeId);
   };
 
+  useEffect(() => {
+    setSearchTerm("chicken");
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 to-red-50">
       <header className="bg-white shadow-sm border-b border-orange-100">
@@ -46,11 +50,9 @@ function HomePage() {
                 <ChefHat className="w-8 h-8 text-orange-600" />
               </div>
               <div>
-                <h1 className="text-3xl font-bold text-gray-900">
-                  Recettes de cuisine
-                </h1>
+                <h1 className="text-3xl font-bold text-gray-900">Cuisin’&Co</h1>
                 <p className="text-gray-600">
-                  Découvrez des recettes délicieuses
+                  Découvrez de délicieuses recettes
                 </p>
               </div>
             </div>
